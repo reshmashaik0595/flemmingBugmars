@@ -7,7 +7,7 @@ const app = express()
 
 const { SERVER } = require('./config/constants')
 
-const IP = '127.0.0.1'
+const IP = 'localhost'
 
 mongoose.set('useCreateIndex', true)
 mongoose.set('useUnifiedTopology', true)
@@ -16,7 +16,8 @@ mongoose.set('useUnifiedTopology', true)
 const userRoute = require('./routes/user.route')
 
 // Connect to mongodb
-mongoose.connect(`mongodb://${IP}/${SERVER.DATABASE_NAME}`, { useNewUrlParser: true })
+mongoose.connect(`mongodb+srv://reshmashaik462:mongoAtlas786@cluster-free.4gppmvb.mongodb.net/${SERVER.DATABASE_NAME}`, { useNewUrlParser: true })
+// mongoose.connect(`mongodb://${IP}/${SERVER.DATABASE_NAME}`, { useNewUrlParser: true })
 
 // on connection
 mongoose.connection.on('connected', (err) => {
